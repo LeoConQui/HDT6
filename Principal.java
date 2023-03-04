@@ -5,6 +5,7 @@ import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.TreeMap;
+
 /**
  * Principal es la clase que interactua con el usuario y tiene el metodo main
  * @author Leonel Contreras 18797
@@ -17,6 +18,8 @@ public class Principal {
         ArrayList<String> lectura = new ArrayList<String>();
         ArrayList<String> stringsbuenos = new ArrayList<String>();
         HashFactory<String,SingleLinkedList<String>> factoriadehash = new HashFactory<String,SingleLinkedList<String>>();
+        
+        
 
         try {
             BufferedReader reader = new BufferedReader(new FileReader("inventario.txt"));
@@ -32,7 +35,11 @@ public class Principal {
         }
 
         for (String string : lectura) {
-            String stringaagregar = string.replace("|", " ");
+            System.out.println(string);
+        }
+
+        for (String string : lectura) {
+            String stringaagregar = string.replace("|", "   ");
             stringsbuenos.add(stringaagregar);
         }
 
@@ -42,7 +49,24 @@ public class Principal {
 
         Map<String, SingleLinkedList<String>> instancia = factoriadehash.InstanceCreator(1);
 
-        System.out.println(instancia.getClass());
+        //System.out.println(instancia.getClass());
+
+        for (String string : stringsbuenos) {
+            String[] lista = string.split("\\s{3}");
+            /*for (String string2 : lista) {
+                System.out.println(string2);
+                System.out.println("asdf");
+            }*/
+            String palabra1 = lista[0];
+            String palabra2 = lista[1].trim();
+            System.out.println("Las palabras son ");
+            System.out.println(palabra1);
+            System.out.println(" ");
+            System.out.println(palabra2);
+            
+
+        }
+        
       
 
 
