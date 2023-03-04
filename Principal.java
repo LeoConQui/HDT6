@@ -2,8 +2,10 @@ import java.util.ArrayList;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.LinkedHashMap;
 import java.util.Map;
+import java.util.Set;
 import java.util.TreeMap;
 
 /**
@@ -18,7 +20,7 @@ public class Principal {
         ArrayList<String> lectura = new ArrayList<String>();
         ArrayList<String> stringsbuenos = new ArrayList<String>();
         HashFactory<String,SingleLinkedList<String>> factoriadehash = new HashFactory<String,SingleLinkedList<String>>();
-        
+        Set<String> set = new HashSet<String>();
         
 
         try {
@@ -59,13 +61,14 @@ public class Principal {
             }*/
             String palabra1 = lista[0];
             String palabra2 = lista[1].trim();
-            System.out.println("Las palabras son ");
-            System.out.println(palabra1);
-            System.out.println(" ");
-            System.out.println(palabra2);
-            
-
+            set.add(palabra1);
         }
+
+        for (String string : set) {
+            System.out.println(string);
+        }
+
+
         
       
 
