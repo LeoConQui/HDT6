@@ -5,6 +5,7 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.LinkedHashMap;
 import java.util.Map;
+import java.util.Scanner;
 import java.util.Set;
 import java.util.TreeMap;
 
@@ -21,6 +22,7 @@ public class Principal {
         ArrayList<String> stringsbuenos = new ArrayList<String>();
         HashFactory<String,SingleLinkedList<String>> factoriadehash = new HashFactory<String,SingleLinkedList<String>>();
         Set<String> set = new HashSet<String>();
+        Set<String> listallaves = new HashSet<>();
         
 
         try {
@@ -49,9 +51,9 @@ public class Principal {
             System.out.println(string);
         }
 
-        Map<String, SingleLinkedList<String>> instancia = factoriadehash.InstanceCreator(1);
+        //Map<String, SingleLinkedList<String>> instancia = factoriadehash.InstanceCreator(1);
 
-        System.out.println(instancia.getClass());
+        //System.out.println(instancia.getClass());
 
         for (String string : stringsbuenos) {
             String[] lista = string.split("\\s{3}");
@@ -67,6 +69,26 @@ public class Principal {
         for (String string : set) {
             System.out.println(string);
         }
+
+        System.out.println("Ingrese la opcion de mapa que desea implementar");
+        System.out.println("1. HashMap");
+        System.out.println("2. TreeMap");
+        System.out.println("3. LinkedHashMap");
+        Scanner scanner = new Scanner(System.in);
+        int numero = scanner.nextInt();
+        
+        Map<String, SingleLinkedList<String>> instancia = factoriadehash.InstanceCreator(numero);
+        for (String string : set) {
+            SingleLinkedList<String> singlelinkedlist = new SingleLinkedList<String>();
+            instancia.put(string, singlelinkedlist);
+        }
+
+        listallaves = instancia.keySet();
+
+        for (String string : listallaves) {
+            System.out.println(string);
+        }
+
 
 
         
