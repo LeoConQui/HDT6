@@ -8,11 +8,11 @@ import java.util.TreeMap;
  * @author Leonel Contreras 18797
  * @version 1.0
  */
-public class HashFactory {
+public class HashFactory<T,K> {
 
-    public Map<String, SingleLinkedList<String>> InstanceCreator(int opcionmapa) {
+    public Map<T, K> InstanceCreator(int opcionmapa) {
         // creamos una referencia de tipo Map
-        Map<String, SingleLinkedList<String>> mapaaretornar;
+        Map<T, K> mapaaretornar;
 
         switch (opcionmapa) {
             case 1:
