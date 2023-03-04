@@ -49,7 +49,7 @@ public class Principal {
 
         Map<String, SingleLinkedList<String>> instancia = factoriadehash.InstanceCreator(1);
 
-        //System.out.println(instancia.getClass());
+        System.out.println(instancia.getClass());
 
         for (String string : stringsbuenos) {
             String[] lista = string.split("\\s{3}");
