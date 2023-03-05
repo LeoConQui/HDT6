@@ -38,18 +38,20 @@ public class Principal {
             System.out.println(e.getMessage());
         }
 
-        for (String string : lectura) {
+        // este ciclo for imprime los textos leidos por el bufferreader
+        /*for (String string : lectura) {
             System.out.println(string);
-        }
+        }*/
 
         for (String string : lectura) {
             String stringaagregar = string.replace("|", "   ");
             stringsbuenos.add(stringaagregar);
         }
 
-        for (String string : stringsbuenos) {
+        // este ciclo for imprime los textos separados por espacio 
+        /*for (String string : stringsbuenos) {
             System.out.println(string);
-        }
+        }*/
 
         //Map<String, SingleLinkedList<String>> instancia = factoriadehash.InstanceCreator(1);
 
@@ -66,9 +68,10 @@ public class Principal {
             set.add(palabra1);
         }
 
-        for (String string : set) {
+        // este ciclo for ensena las categorias presentes en el texto
+        /*for (String string : set) {
             System.out.println(string);
-        }
+        }*/
 
         System.out.println("Ingrese la opcion de mapa que desea implementar");
         System.out.println("1. HashMap");
@@ -85,10 +88,30 @@ public class Principal {
 
         listallaves = instancia.keySet();
 
+        System.out.println("Las categorias de productos son:");
         for (String string : listallaves) {
             System.out.println(string);
         }
 
+        int contador = 1;
+        for (String string : stringsbuenos) {
+            String[] lista = string.split("\\s{3}");
+            String key = lista[0];
+            String value = lista[1].trim();
+            //obtenemos la lista que corresponde a la llave
+            SingleLinkedList<String> singlelinkedlist = instancia.get(key);
+            singlelinkedlist.InsertAtStart(value);
+            System.out.println(contador + "Agrego un valor");
+            contador++;
+        }
+
+        SingleLinkedList listasimplementeencadenada = instancia.get("Mueble de terraza");
+
+        System.out.println(listasimplementeencadenada.Count());
+
+        int numerodeproductor = scanner.nextInt();
+
+        System.out.println(listasimplementeencadenada.Get(numerodeproductor));
 
 
         
