@@ -78,6 +78,7 @@ public class Principal {
         System.out.println("2. TreeMap");
         System.out.println("3. LinkedHashMap");
         Scanner scanner = new Scanner(System.in);
+        Scanner texto = new Scanner(System.in);
         int numero = scanner.nextInt();
         
         Map<String, SingleLinkedList<String>> instancia = factoriadehash.InstanceCreator(numero);
@@ -126,7 +127,35 @@ public class Principal {
             opcionusuario = scanner.nextInt();
 
             if (opcionusuario == 1) {
-                // aqui va lo de agregar un producto a la collecion del usuario
+                System.out.println("Ingrese el nombre del producto que desea agregar a la lista del usuario");
+                String producto = texto.nextLine();
+                // verificamos llave por llave si existe algun producto con el nombre ingresado
+                String llave = null;
+                for (String key : listallaves) {
+                    SingleLinkedList listaarecorrer = instancia.get(key);
+                    for (int i = 0; i < listaarecorrer.Count(); i++){
+                        if (listaarecorrer.Get(i).equals(producto)) {
+                            llave = key;
+                            break;
+                        }
+                    }
+                }
+
+                if (llave == null) {
+                    try {
+                        throw new Exception("No existe producto con el nombre ingresado");
+                    } catch (Exception e) {
+                        System.out.println(e.getMessage());;
+                    }
+                } else {
+                    System.out.println("Se ha agregado el producto " + producto +" de la categoria " + llave +" exitosamente");
+                    SingleLinkedList<String> listaaagregar = new SingleLinkedList<String>();
+                    usuario.put(llave, listaaagregar);
+                    SingleLinkedList<String> listadelusuario = usuario.get(llave);
+                    listadelusuario.InsertAtStart(producto);
+                    System.out.println(listadelusuario.Get(0));
+                    System.out.println(listadelusuario.Get(1));
+                }
             }
 
             if (opcionusuario ==2) {
