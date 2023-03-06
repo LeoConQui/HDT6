@@ -1,9 +1,11 @@
 import java.util.ArrayList;
+import java.util.Collections;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.LinkedHashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
 import java.util.Set;
@@ -73,6 +75,8 @@ public class Principal {
             System.out.println(string);
         }*/
 
+        
+
         System.out.println("Ingrese la opcion de mapa que desea implementar para guardar la lista del supermercado");
         System.out.println("1. HashMap");
         System.out.println("2. TreeMap");
@@ -88,6 +92,13 @@ public class Principal {
         }
 
         listallaves = instancia.keySet();
+        List<String> listatemporal = new ArrayList<String>(listallaves);
+        Collections.sort(listatemporal);
+
+        for (String string : listatemporal) {
+            System.out.println(string);
+        }
+        
 
         /*System.out.println("Las categorias de productos son:");
         for (String string : listallaves) {
@@ -115,7 +126,8 @@ public class Principal {
         Map<String, SingleLinkedList<String>> usuario = factoriadehash.InstanceCreator(opcionmapusuario);
         //System.out.println(usuario.getClass());
 
-        for (String llave : listallaves) {
+        // hice un cambio aqui
+        for (String llave : listatemporal) {
             SingleLinkedList<String> linkedListusuario = new SingleLinkedList<String>();
             usuario.put(llave, linkedListusuario);
         }
@@ -170,7 +182,7 @@ public class Principal {
 
             if (opcionusuario == 4) {
                 // recorremos el set que contiene las categorias de los productos
-                for (String key : listallaves) {
+                for (String key : listatemporal) {
                     System.out.println("Los productor para la categoria " + key + " son:");
                     // obtenemos el value del map para la respectiva llave
                     SingleLinkedList<String> linkedlista = instancia.get(key);
