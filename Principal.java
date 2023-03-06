@@ -73,7 +73,7 @@ public class Principal {
             System.out.println(string);
         }*/
 
-        System.out.println("Ingrese la opcion de mapa que desea implementar");
+        System.out.println("Ingrese la opcion de mapa que desea implementar para guardar la lista del supermercado");
         System.out.println("1. HashMap");
         System.out.println("2. TreeMap");
         System.out.println("3. LinkedHashMap");
@@ -88,12 +88,12 @@ public class Principal {
 
         listallaves = instancia.keySet();
 
-        System.out.println("Las categorias de productos son:");
+        /*System.out.println("Las categorias de productos son:");
         for (String string : listallaves) {
             System.out.println(string);
-        }
+        }*/
 
-        int contador = 1;
+        //int contador = 1;
         for (String string : stringsbuenos) {
             String[] lista = string.split("\\s{3}");
             String key = lista[0];
@@ -101,19 +101,62 @@ public class Principal {
             //obtenemos la lista que corresponde a la llave
             SingleLinkedList<String> singlelinkedlist = instancia.get(key);
             singlelinkedlist.InsertAtStart(value);
-            System.out.println(contador + "Agrego un valor");
-            contador++;
+            //System.out.println(contador + "Agrego un valor");
+            //contador++;
         }
 
-        SingleLinkedList listasimplementeencadenada = instancia.get("Mueble de terraza");
+        System.out.println("Ingrese la opcion de map que desea implementar el usuario");
+        System.out.println("1. HashMap");
+        System.out.println("2. TreeMap");
+        System.out.println("3. LinkedHashMap");
+        int opcionmapusuario = scanner.nextInt();
 
-        System.out.println(listasimplementeencadenada.Count());
+        Map<String, SingleLinkedList<String>> usuario = factoriadehash.InstanceCreator(opcionmapusuario);
+        //System.out.println(usuario.getClass());
+        int opcionusuario = 0;
 
-        int numerodeproductor = scanner.nextInt();
+        while (opcionusuario!= 5) {
+            System.out.println(" ");
+            System.out.println("Ingrese una opcion");
+            System.out.println("1. Agregar un producto a la coleccion del usuario");
+            System.out.println("2. Mostrar categoria de un producto");
+            System.out.println("3. Mostrar categoria y cantidad de producto que posee el usuario");
+            System.out.println("4. Mostrar todo el inventario");
+            System.out.println("5. Salir");
+            opcionusuario = scanner.nextInt();
 
-        System.out.println(listasimplementeencadenada.Get(numerodeproductor));
+            if (opcionusuario == 1) {
+                // aqui va lo de agregar un producto a la collecion del usuario
+            }
 
+            if (opcionusuario ==2) {
+                // aqui va lo de mostrar categoria del producto
+            }
 
+            if (opcionusuario == 3) {
+                // mostrar categoria y cantidad del usuario tiene en su collecion
+            }
+
+            if (opcionusuario == 4) {
+                // recorremos el set que contiene las categorias de los productos
+                for (String key : listallaves) {
+                    System.out.println("Los productor para la categoria " + key + " son:");
+                    // obtenemos el value del map para la respectiva llave
+                    SingleLinkedList<String> linkedlista = instancia.get(key);
+                    // recorremos cada singlelinkedlist
+                    int contador = 1;
+                    for (int index = 0; index < linkedlista.Count(); index++) {
+                        System.out.println(contador + " " + linkedlista.Get(index));
+                        contador++;
+                    }
+                    System.out.println(" ");
+                }
+            }
+        }
+
+        if (opcionusuario == 5) {
+            System.out.println("Usted ha elegido salir");
+        }
         
       
 
