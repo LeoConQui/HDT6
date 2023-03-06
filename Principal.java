@@ -168,12 +168,33 @@ public class Principal {
                     System.out.println("Se ha agregado el producto " + producto +" de la categoria " + llave +" exitosamente");
                     SingleLinkedList<String> listadelusuario = usuario.get(llave);
                     listadelusuario.InsertAtStart(producto);
-                    System.out.println(listadelusuario.Count());
+                    //System.out.println(listadelusuario.Count());
                 }
             }
 
             if (opcionusuario ==2) {
-                // aqui va lo de mostrar categoria del producto
+                System.out.println("Ingrese el nombre del producto que desea verificar su categoria");
+                String producto = texto.nextLine();
+                String categoria=null;
+                for (String key : listatemporal) {
+                    SingleLinkedList listaarecorrer = instancia.get(key);
+                    for (int i = 0; i < listaarecorrer.Count(); i++) {
+                        if (producto.equals(listaarecorrer.Get(i))) {
+                            categoria = key;
+                            break;
+                        }
+                    }
+                }
+                
+                if (categoria==null) {
+                    try {
+                        throw new Exception("El producto ingresado no pertenece a ninguna categoria");
+                    } catch (Exception e) {
+                        System.out.println(e.getMessage());
+                    }
+                } else {
+                    System.out.println("El producto " + producto + " pertenece a la categoria " + categoria);
+                }
             }
 
             if (opcionusuario == 3) {
