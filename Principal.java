@@ -114,6 +114,11 @@ public class Principal {
 
         Map<String, SingleLinkedList<String>> usuario = factoriadehash.InstanceCreator(opcionmapusuario);
         //System.out.println(usuario.getClass());
+
+        for (String llave : listallaves) {
+            SingleLinkedList<String> linkedListusuario = new SingleLinkedList<String>();
+            usuario.put(llave, linkedListusuario);
+        }
         int opcionusuario = 0;
 
         while (opcionusuario!= 5) {
@@ -149,12 +154,9 @@ public class Principal {
                     }
                 } else {
                     System.out.println("Se ha agregado el producto " + producto +" de la categoria " + llave +" exitosamente");
-                    SingleLinkedList<String> listaaagregar = new SingleLinkedList<String>();
-                    usuario.put(llave, listaaagregar);
                     SingleLinkedList<String> listadelusuario = usuario.get(llave);
                     listadelusuario.InsertAtStart(producto);
-                    System.out.println(listadelusuario.Get(0));
-                    System.out.println(listadelusuario.Get(1));
+                    System.out.println(listadelusuario.Count());
                 }
             }
 
