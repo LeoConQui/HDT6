@@ -133,14 +133,15 @@ public class Principal {
         }
         int opcionusuario = 0;
 
-        while (opcionusuario!= 5) {
+        while (opcionusuario!= 6) {
             System.out.println(" ");
             System.out.println("Ingrese una opcion");
             System.out.println("1. Agregar un producto a la coleccion del usuario");
             System.out.println("2. Mostrar categoria de un producto");
             System.out.println("3. Mostrar categoria y cantidad de producto que posee el usuario");
-            System.out.println("4. Mostrar todo el inventario");
-            System.out.println("5. Salir");
+            System.out.println("4. Ver productos del usuario");
+            System.out.println("5. Mostrar todo el inventario");
+            System.out.println("6. Salir");
             opcionusuario = scanner.nextInt();
 
             if (opcionusuario == 1) {
@@ -188,7 +189,7 @@ public class Principal {
                 
                 if (categoria==null) {
                     try {
-                        throw new Exception("El producto ingresado no pertenece a ninguna categoria");
+                        throw new Exception("El producto ingresado no pertenece a ninguna categoria ");
                     } catch (Exception e) {
                         System.out.println(e.getMessage());
                     }
@@ -198,10 +199,36 @@ public class Principal {
             }
 
             if (opcionusuario == 3) {
-                // mostrar categoria y cantidad del usuario tiene en su collecion
+                System.out.println("Ingrese el producto que desea verificar");
+                String producto = texto.nextLine();
+                String categoria = " ";
+                int contador = 0;
+                for (String key : listatemporal) {
+                    SingleLinkedList listaarecorrer = usuario.get(key);
+                    for (int i = 0; i < listaarecorrer.Count(); i++) {
+                        if (producto.equals(listaarecorrer.Get(i))) {
+                            contador++;
+                            categoria = key;
+                        }
+                    }
+                }
+
+                if (contador == 0) {
+                    try {
+                        throw new Exception("El usuario no posee el producto ingresado");
+                    } catch (Exception e) {
+                       System.out.println(e.getMessage());
+                    }
+                } else {
+                    System.out.println("El usuario posee " + contador + " articulos de " + producto + " de la categoria" + categoria);
+                }
             }
 
             if (opcionusuario == 4) {
+                
+            }
+
+            if (opcionusuario == 5) {
                 // recorremos el set que contiene las categorias de los productos
                 for (String key : listatemporal) {
                     System.out.println("Los productor para la categoria " + key + " son:");
@@ -218,7 +245,7 @@ public class Principal {
             }
         }
 
-        if (opcionusuario == 5) {
+        if (opcionusuario == 6) {
             System.out.println("Usted ha elegido salir");
         }
         
