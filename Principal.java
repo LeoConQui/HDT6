@@ -227,11 +227,13 @@ public class Principal {
             if (opcionusuario == 4) {
                 for (String key : listatemporal) {
                     SingleLinkedList listaarecorrer = usuario.get(key);
-                    System.out.println("Los productos del usuario en la categoria " + key + " son:");
+                    //System.out.println("Los productos del usuario en la categoria " + key + " son:");
                     int contador =1;
                     if (listaarecorrer.Count()>0) {
+                        System.out.println("Los productos del usuario de la categoria " + key + " son:");
                         for (int i = 0; i < listaarecorrer.Count(); i++) {
                             System.out.println(contador +" " + listaarecorrer.Get(i));
+                            contador++;
                         }
                     }
                 }
