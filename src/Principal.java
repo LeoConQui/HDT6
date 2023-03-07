@@ -29,7 +29,7 @@ public class Principal {
         
 
         try {
-            BufferedReader reader = new BufferedReader(new FileReader("inventario.txt"));
+            BufferedReader reader = new BufferedReader(new FileReader("Inventario.txt"));
             String line;
             while ((line = reader.readLine())!= null) {
                 // removemos los espacios en blanco 
@@ -96,9 +96,9 @@ public class Principal {
         List<String> listatemporal = new ArrayList<String>(listallaves);
         Collections.sort(listatemporal);
 
-        /*for (String string : listatemporal) {
+        for (String string : listatemporal) {
             System.out.println(string);
-        }*/
+        }
         
 
         /*System.out.println("Las categorias de productos son:");
