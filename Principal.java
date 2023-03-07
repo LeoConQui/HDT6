@@ -95,9 +95,9 @@ public class Principal {
         List<String> listatemporal = new ArrayList<String>(listallaves);
         Collections.sort(listatemporal);
 
-        for (String string : listatemporal) {
+        /*for (String string : listatemporal) {
             System.out.println(string);
-        }
+        }*/
         
 
         /*System.out.println("Las categorias de productos son:");
@@ -220,12 +220,21 @@ public class Principal {
                        System.out.println(e.getMessage());
                     }
                 } else {
-                    System.out.println("El usuario posee " + contador + " articulos de " + producto + " de la categoria" + categoria);
+                    System.out.println("El usuario posee " + contador + " articulos de " + producto + " de la categoria " + categoria);
                 }
             }
 
             if (opcionusuario == 4) {
-                
+                for (String key : listatemporal) {
+                    SingleLinkedList listaarecorrer = usuario.get(key);
+                    System.out.println("Los productos del usuario en la categoria " + key + " son:");
+                    int contador =1;
+                    if (listaarecorrer.Count()>0) {
+                        for (int i = 0; i < listaarecorrer.Count(); i++) {
+                            System.out.println(contador +" " + listaarecorrer.Get(i));
+                        }
+                    }
+                }
             }
 
             if (opcionusuario == 5) {
