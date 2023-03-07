@@ -136,15 +136,15 @@ public class Principal {
         while (opcionusuario!= 6) {
             System.out.println(" ");
             System.out.println("Ingrese una opcion");
-            System.out.println("1. Agregar un producto a la coleccion del usuario");
+            System.out.println("1. Mostrar todo el inventario");
             System.out.println("2. Mostrar categoria de un producto");
-            System.out.println("3. Mostrar categoria y cantidad de producto que posee el usuario");
-            System.out.println("4. Ver productos del usuario");
-            System.out.println("5. Mostrar todo el inventario");
+            System.out.println("3. Agregar un producto a la coleccion del usuario");
+            System.out.println("4. Mostrar categoria y cantidad de producto que posee el usuario");
+            System.out.println("5. Ver productos del usuario");
             System.out.println("6. Salir");
             opcionusuario = scanner.nextInt();
 
-            if (opcionusuario == 1) {
+            if (opcionusuario == 3) {
                 System.out.println("Ingrese el nombre del producto que desea agregar a la lista del usuario");
                 String producto = texto.nextLine();
                 // verificamos llave por llave si existe algun producto con el nombre ingresado
@@ -198,7 +198,7 @@ public class Principal {
                 }
             }
 
-            if (opcionusuario == 3) {
+            if (opcionusuario == 4) {
                 System.out.println("Ingrese el producto que desea verificar");
                 String producto = texto.nextLine();
                 String categoria = " ";
@@ -224,7 +224,7 @@ public class Principal {
                 }
             }
 
-            if (opcionusuario == 4) {
+            if (opcionusuario == 5) {
                 for (String key : listatemporal) {
                     SingleLinkedList listaarecorrer = usuario.get(key);
                     //System.out.println("Los productos del usuario en la categoria " + key + " son:");
@@ -239,7 +239,7 @@ public class Principal {
                 }
             }
 
-            if (opcionusuario == 5) {
+            if (opcionusuario == 1) {
                 // recorremos el set que contiene las categorias de los productos
                 for (String key : listatemporal) {
                     System.out.println("Los productor para la categoria " + key + " son:");
